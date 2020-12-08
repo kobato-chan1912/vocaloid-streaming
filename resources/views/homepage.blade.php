@@ -46,30 +46,6 @@
                 Upload Video
             </a>
         </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <span class="badge badge-danger">9+</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-edit "></i> &nbsp; Action</a>
-                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-headphones-alt "></i> &nbsp; Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <span class="badge badge-success">7</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-edit "></i> &nbsp; Action</a>
-                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-headphones-alt "></i> &nbsp; Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
-            </div>
-        </li>
         <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
             <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img alt="Avatar" src="img/user.png">
@@ -161,119 +137,25 @@
                                     <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
                                 </div>
                             </div>
-                            <h6>Channels Categories</h6>
+                            <h6>Futured</h6>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
+
+                            @foreach($artists as $future_artist)
                             <div class="item">
+
                                 <div class="category-item">
                                     <a href="#">
-                                        <img class="img-fluid" src="img/s1.png" alt="">
-                                        <h6>Your Life</h6>
-                                        <p>74,853 views</p>
+                                        <img class="img-fluid" src="{{$future_artist->image_artist}}" alt="">
+                                        <h6>{{$future_artist->name_artist}}</h6>
+                                        <p>{{$future_artist->views}} views</p>
                                     </a>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s2.png" alt="">
-                                        <h6>Unboxing Cool</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s3.png" alt="">
-                                        <h6>Service Reviewing</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s4.png" alt="">
-                                        <h6>Gaming <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s5.png" alt="">
-                                        <h6>Technology Tutorials</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s6.png" alt="">
-                                        <h6>Singing</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s7.png" alt="">
-                                        <h6>Cooking</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s8.png" alt="">
-                                        <h6>Traveling</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s1.png" alt="">
-                                        <h6>Education</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s2.png" alt="">
-                                        <h6>Noodles, Sauces & Instant Food</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s3.png" alt="">
-                                        <h6>Comedy <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="img/s4.png" alt="">
-                                        <h6>Lifestyle Advice</h6>
-                                        <p>74,853 views</p>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -549,15 +431,21 @@
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-lg-6 col-sm-6">
-                        <p class="mt-1 mb-0"><strong class="text-dark">Vidoe</strong>.
-                            <small class="mt-0 mb-0"><a class="text-primary" target="_blank" href="https://www.templatespoint.net/">Templates Point</a>
+                        <p class="mt-1 mb-0"><strong class="text-dark">Website developed by</strong> |
+                            <small class="mt-0 mb-0"><a class="text-primary" target="_blank" href="https://www.facebook.com/Dung.Nagi/">@Mai Viết Dũng</a>
                             </small>
                         </p>
+                        <p class="mt-1 mb-0"><strong class="text-dark">This project is completely open-source</strong> |
+                            <small class="mt-0 mb-0"><a class="text-primary" target="_blank" href="https://github.com/kobato-chan1912/vocaloid-streaming/">@github</a>
+                            </small>
+                        </p>
+
                     </div>
+
                     <div class="col-lg-6 col-sm-6 text-right">
                         <div class="app">
-                            <a href="#"><img alt="" src="img/google.png"></a>
-                            <a href="#"><img alt="" src="img/apple.png"></a>
+                            <a href="#"><img alt="" src="img/spons/tiktok.png"></a>
+                            <a href="#"><img alt="" src="img/spons/nico.png"></a>
                         </div>
                     </div>
                 </div>
