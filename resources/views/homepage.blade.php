@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="vendor/owl-carousel/owl.theme.css">
 </head>
 <body id="page-top">
-<?php var_dump($categories); ?>
 <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
     &nbsp;&nbsp;
     <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
@@ -103,22 +102,23 @@
                 <span>Upload Video</span>
             </a>
         </li>
+        @foreach($categories as $cate_data)
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Categories</span>
+                <span>{{$cate_data->name}}</span>
             </a>
             <div class="dropdown-menu">
-                <h6 class="dropdown-header">Login Screens:</h6>
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
-                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-                <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header">Other Pages:</h6>
-                <a class="dropdown-item" href="404.html">404 Page</a>
-                <a class="dropdown-item" href="blank.html">Blank Page</a>
+                @foreach($cate_detail as $detail)
+                    @if($cate_data->id == $detail->id_categories)
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">{{$detail->cate_detail_name}}</a>
+
+                    @endif
+                @endforeach
             </div>
         </li>
+        @endforeach
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
