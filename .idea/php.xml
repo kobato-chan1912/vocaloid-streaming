@@ -107,6 +107,12 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/alchemy/binary-driver" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/php-ffmpeg/php-ffmpeg" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/neutron/temporary-filesystem" />
     </include_path>
   </component>
   <component name="PhpUnit">
