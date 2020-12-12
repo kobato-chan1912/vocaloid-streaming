@@ -19,3 +19,4 @@ Route::get('test', 'HomeController@test');
 Route::get('login',function (){
     return view('login');
 });
+Route::get('/watch?id={id}', '');
