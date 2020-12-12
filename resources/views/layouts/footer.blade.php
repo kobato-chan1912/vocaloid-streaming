@@ -15,8 +15,8 @@
 
             <div class="col-lg-6 col-sm-6 text-right">
                 <div class="app">
-                    <a href="#"><img alt="" src="img/spons/tiktok.png"></a>
-                    <a href="#"><img alt="" src="img/spons/nico.png"></a>
+                    <a href="#"><img alt="" src="{{asset('img/spons/tiktok.png')}}"></a>
+                    <a href="#"><img alt="" src="{{asset("img/spons/nico.png")}}"></a>
                 </div>
             </div>
         </div>

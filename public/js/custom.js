@@ -5,10 +5,13 @@ Author URI: https://themeforest.net/user/askbootstrap
 Version: 1.0
 */
 (function($) {
-  "use strict"; // Start of use strict
 
+  "use strict"; // Start of use strict
+    $(function() {
+        $(".preloader").fadeOut();
+    });
   // Toggle the side navigation
-   $(document).on('click', '#sidebarToggle', function(e) {  
+   $(document).on('click', '#sidebarToggle', function(e) {
     e.preventDefault();
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
@@ -23,7 +26,7 @@ Version: 1.0
       e.preventDefault();
     }
   });
-  
+
   // Category Owl Carousel
   var objowlcarousel = $(".owl-carousel-category");
   if (objowlcarousel.length > 0) {
@@ -54,7 +57,7 @@ Version: 1.0
 		navigationText: ["<i class='mdi mdi-chevron-left'></i>", "<i class='mdi mdi-chevron-right'></i>"]
       });
   }
-	
+
   // Tooltip
   $('[data-toggle="tooltip"]').tooltip()
 

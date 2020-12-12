@@ -16,4 +16,13 @@ class videos extends Model
             ->select("*")
             ->get();
     }
+    public function getVideoDetail($id){
+        return DB::table($this->table)
+            ->select("*")
+            ->join('categories_detail', 'categories_detail.id', '=', 'video.cate_detail_id')
+            ->join('users', 'users.id', '=', 'video.id_created')
+
+            ->where("video.id", $id)
+            ->get();
+    }
 }
