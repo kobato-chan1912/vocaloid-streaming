@@ -53,19 +53,28 @@
                 Upload Video
             </a>
         </li>
+        @if (session('LoggedUser'))
         <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
             <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img alt="Avatar" src="img/user.png">
-                Osahan
+                <img alt="Avatar" src="{{session('LoggedUser')->avatar_img}}">
+                {{session('LoggedUser')->name}}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
                 <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
                 <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
+                <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
             </div>
         </li>
+            @else
+            <li class="nav-item mx-1">
+                <a class="nav-link" href="{{route('login')}}">
+                    <i class="fas fa-user-circle"></i>
+                    Login
+                </a>
+            </li>
+        @endif
     </ul>
 </nav>
 <div id="wrapper">
@@ -342,7 +351,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="{{route('logout')}}">Logout</a>
             </div>
         </div>
     </div>

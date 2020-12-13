@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     //
+    public function GetLogin(Request $request){
+        if ($request->session()->has("LoggedUser")) {
+            return redirect(url()->previous());
+        }
+        else {
+            $request->session()->put("previous", url()->previous());
+            $request->session()->put("current", url()->current());
+            return view('Auth.login');
+        }
+    }
     public function Register(Request $request){
         $request->validate([
            'email' => 'required|unique:users',
@@ -35,7 +45,12 @@ class AuthController extends Controller
             if (Hash::check($request->password, $user->password))
             {
                 $request->session()->put('LoggedUser', $user); // Logged in.
-                var_dump($request->session()->all());
+                if (session("previous") != (session("current"))) {
+                    return redirect(session('previous'));
+                }
+                else {
+                    return redirect()->route('home');
+            }
             }
             else {
                 return view('Auth.login', ["incorrect" => "Password is wrong."]);
@@ -46,6 +61,15 @@ class AuthController extends Controller
             return view('Auth.login', ["message" => "Account not found."]);
         }
 
+    }
+    public function logout(Request $request){
+        $request->session()->forget("LoggedUser");
+        if ((url()->current()) == (url()->previous())){
+            return redirect()->route('home');
+        }
+        else {
+            return redirect(url()->previous());
+        }
     }
 
 }

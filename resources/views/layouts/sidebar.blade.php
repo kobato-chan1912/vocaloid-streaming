@@ -30,7 +30,8 @@
             </div>
         </li>
     @endforeach
-
+    @if(session("LoggedUser"))
+    @else
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-list-alt"></i>
@@ -41,4 +42,5 @@
             <a class="dropdown-item" href="{{route('register')}}">Register</a>
         </div>
     </li>
+        @endif
 </ul>

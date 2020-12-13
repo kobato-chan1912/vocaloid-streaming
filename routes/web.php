@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@Homepage')->name("home");
 
 Route::get('test', 'HomeController@test');
-Route::get('login',function (){
-    return view('Auth.login');
-})->name("login");
+Route::get('login', 'AuthController@GetLogin')->name("login");
 Route::post('login', 'AuthController@Login');
 Route::get('/watch/video={id}', 'VideoController@GetDetail')->name("watch");
 
@@ -30,3 +28,4 @@ Route::post('register','AuthController@Register');
 Route::get('test', function (){
    return view('log');
 });
+Route::get ('logout', 'AuthController@logout')->name('logout');
