@@ -111,7 +111,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{route('login')}}">Login</a>
-                <a class="dropdown-item" href="categories.html">Register</a>
+                <a class="dropdown-item" href="{{route('register')}}">Register</a>
             </div>
         </li>
     </ul>
@@ -199,7 +199,7 @@
                                     <a href="{{route("watch", $video->id)}}">{{$video->title}}</a>
                                 </div>
                                 <div class="video-page text-success">
-                                    {{$video->users_name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                 </div>
                                 <div class="video-view">
                                     {{$video->viewers}} &nbsp;<i class="fas fa-calendar-alt"></i> {{$video->upload_date}}

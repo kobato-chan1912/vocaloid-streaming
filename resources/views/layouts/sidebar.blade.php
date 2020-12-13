@@ -38,7 +38,7 @@
         </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{route('login')}}">Login</a>
-            <a class="dropdown-item" href="categories.html">Register</a>
+            <a class="dropdown-item" href="{{route('register')}}">Register</a>
         </div>
     </li>
 </ul>

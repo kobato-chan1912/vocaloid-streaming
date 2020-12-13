@@ -28,7 +28,7 @@
                             <div class="single-video-author box mb-3">
 {{--                                <div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>--}}
                                 <img class="img-fluid" src="{{asset("img/avatar/1.jpg")}}" alt="">
-                                <p><a href="#"><strong>{{$data[0]->users_name}}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+                                <p><a href="#"><strong>{{$data[0]->name}}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
                                 <small>Published on {{$data[0]->upload_date}}</small>
                             </div>
                             <div class="single-video-info-content box mb-3">

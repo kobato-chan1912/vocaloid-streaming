@@ -22,3 +22,7 @@ Route::get('login',function (){
 Route::get('/watch/video={id}', 'VideoController@GetDetail')->name("watch");
 
 Route::get('categories/id={id}', 'HomeController@GetCategories')->name("categories");
+Route::get('register', function (){
+   return view('Auth.register');
+})->name('register');
+Route::post('register','AuthController@Register');
