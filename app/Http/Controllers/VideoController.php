@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
     //
+
+
+    //
     public function GetDetail($id){
         $video = new videos();
         $get = $video->getVideoDetail($id);

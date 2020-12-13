@@ -16,5 +16,11 @@ class future_artists extends Model
             ->select("*")
             ->get();
     }
+    public function GetArtistDetail($id){
+        return DB::table($this->table)
+            ->select("*")
+            ->where("id_detail", $id)
+            ->get();
+    }
 
 }

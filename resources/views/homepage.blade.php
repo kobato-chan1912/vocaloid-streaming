@@ -92,10 +92,11 @@
                 <span>{{$cate_data->name}}</span>
             </a>
             <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">All</a>
                 @foreach($cate_detail as $detail)
                     @if($cate_data->id == $detail->id_categories)
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">{{$detail->cate_detail_name}}</a>
+                        <a class="dropdown-item" href="{{route('categories', $detail->id)}}">{{$detail->cate_detail_name}}</a>
 
                     @endif
                 @endforeach
@@ -109,7 +110,7 @@
                 <span>Login/Register</span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="categories.html">Login</a>
+                <a class="dropdown-item" href="{{route('login')}}">Login</a>
                 <a class="dropdown-item" href="categories.html">Register</a>
             </div>
         </li>
@@ -189,19 +190,19 @@
                     <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="video-card">
                             <div class="video-card-image">
-                                <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                                <a class="play-icon" href="{{route("watch", $video->id)}}"><i class="fas fa-play-circle"></i></a>
                                 <a href="#"><img class="img-fluid" src="img/screens/{{$video->id_format}}/{{$video->id_format}}_screen.jpg" alt=""></a>
                                 <div class="time">{{$video->duration}}</div>
                             </div>
                             <div class="video-card-body">
                                 <div class="video-title">
-                                    <a href="#">{{$video->title}}</a>
+                                    <a href="{{route("watch", $video->id)}}">{{$video->title}}</a>
                                 </div>
                                 <div class="video-page text-success">
-                                    admin  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    {{$video->users_name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                 </div>
                                 <div class="video-view">
-                                    {{$video->viewers}} &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                    {{$video->viewers}} &nbsp;<i class="fas fa-calendar-alt"></i> {{$video->upload_date}}
                                 </div>
                             </div>
                         </div>

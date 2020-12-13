@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@Homepage');
+Route::get('/', 'HomeController@Homepage')->name("home");
 
 Route::get('test', 'HomeController@test');
 Route::get('login',function (){
-    return view('login');
-});
-Route::get('/watch/video={id}', 'VideoController@GetDetail');
+    return view('Auth.login');
+})->name("login");
+Route::get('/watch/video={id}', 'VideoController@GetDetail')->name("watch");
+
+Route::get('categories/id={id}', 'HomeController@GetCategories')->name("categories");

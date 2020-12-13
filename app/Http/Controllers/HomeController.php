@@ -33,4 +33,11 @@ class HomeController extends Controller
         $frame->save("img/screens/01/01_screen.jpg");
 
     }
+    public function GetCategories($id){
+        $detail = new future_artists();
+        $get = $detail->GetArtistDetail($id);
+        $video = new videos();
+        $data = $video->getVideoArtist($id);
+        return view('categories.detail', ["artist" => $get, "videos" => $data]);
+    }
 }

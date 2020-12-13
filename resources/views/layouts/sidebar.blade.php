@@ -1,6 +1,6 @@
 <ul class="sidebar navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route("home")}}">
             <i class="fas fa-fw fa-home"></i>
             <span>Home</span>
         </a>
@@ -23,7 +23,7 @@
                 @foreach($cate_detail as $detail)
                     @if($cate_data->id == $detail->id_categories)
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">{{$detail->cate_detail_name}}</a>
+                        <a class="dropdown-item" href="{{route('categories', $detail->id)}}">{{$detail->cate_detail_name}}</a>
 
                     @endif
                 @endforeach
@@ -37,7 +37,7 @@
             <span>Login/Register</span>
         </a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="categories.html">Login</a>
+            <a class="dropdown-item" href="{{route('login')}}">Login</a>
             <a class="dropdown-item" href="categories.html">Register</a>
         </div>
     </li>

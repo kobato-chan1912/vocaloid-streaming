@@ -14,6 +14,8 @@ class videos extends Model
     public function GetAllVideos(){
         return DB::table($this->table)
             ->select("*")
+            ->join('users', 'users.id', '=', 'video.id_created')
+
             ->get();
     }
     public function getVideoDetail($id){
@@ -23,6 +25,13 @@ class videos extends Model
             ->join('users', 'users.id', '=', 'video.id_created')
 
             ->where("video.id", $id)
+            ->get();
+    }
+    public function getVideoArtist($id_artist){
+        return DB::table($this->table)
+            ->select("*")
+            ->join("users", "users.id", "=", "video.id_created")
+            ->where("cate_detail_id", $id_artist)
             ->get();
     }
 }
