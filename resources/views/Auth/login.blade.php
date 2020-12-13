@@ -29,15 +29,25 @@
                         <img src="img/favicon.png" class="img-fluid" alt="LOGO">
                         <h5 class="mt-3 mb-3">Welcome to VocaMusic</h5>
                         <p>A world where Vocaloid and Utaite will touch your heart.</p>
+                        @if(session()->get('success'))
+                        <span class="text-success">{{session()->get('success')}}</span>
+                        @endif
                     </div>
-                    <form action="https://askbootstrap.com/preview/vidoe-v1-1/index.html">
+                    <form action="" method="post">
+                        @csrf
                         <div class="form-group">
-                            <label>Email/Username</label>
-                            <input type="text" class="form-control" placeholder="Enter mobile number">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="Enter email" name="email" value="{{old("email")}}" required>
+                            @if(isset($message))
+                            <span class="text-danger">{{$message}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                            @if(isset($incorrect))
+                                <span class="text-danger">{{$incorrect}}</span>
+                            @endif
                         </div>
                         <div class="mt-4">
                             <div class="row">
@@ -48,7 +58,7 @@
                         </div>
                     </form>
                     <div class="text-center mt-5">
-                        <p class="light-gray">Don’t have an account? <a href="register.html">Sign Up</a></p>
+                        <p class="light-gray">Don’t have an account? <a href="{{route('register')}}">Sign Up</a></p>
                     </div>
                 </div>
             </div>

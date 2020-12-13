@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -14,5 +16,36 @@ class AuthController extends Controller
             'password' => 'required',
             're-password' => 'required'
         ]);
+
+        // if validate passed, insert into database.
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->avatar_img = "img/avatar/default.jpg";
+        $query = $user->save();
+
+        return redirect()->route('login')->with(["success" => "Your account has been created. Please Log in."]);
+
     }
+    public function Login (Request $request){
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user){
+            if (Hash::check($request->password, $user->password))
+            {
+                $request->session()->put('LoggedUser', $user); // Logged in.
+                var_dump($request->session()->all());
+            }
+            else {
+                return view('Auth.login', ["incorrect" => "Password is wrong."]);
+
+            }
+        }
+        else {
+            return view('Auth.login', ["message" => "Account not found."]);
+        }
+
+    }
+
 }
