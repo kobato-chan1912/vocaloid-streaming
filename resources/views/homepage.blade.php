@@ -241,15 +241,17 @@
                             <h6>Popular Uploaders</h6>
                         </div>
                     </div>
+                    @foreach($uploaders as $upload)
                     <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="channels-card">
                             <div class="channels-card-image">
-                                <a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
-                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
+                                <a href="#"><img class="img-fluid" src="{{asset($upload->avatar_img)}}" alt=""></a>
+                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Uploaded <strong>{{$upload->count_video}}</strong></button></div>
                             </div>
                             <div class="channels-card-body">
                                 <div class="channels-title">
-                                    <a href="#">Channels Name</a>
+                                    <a href="#">{{$upload->name}}</a>
+                                    <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span>
                                 </div>
                                 <div class="channels-view">
                                     382,323 subscribers
@@ -257,54 +259,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="channels-card">
-                            <div class="channels-card-image">
-                                <a href="#"><img class="img-fluid" src="img/s2.png" alt=""></a>
-                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-                            </div>
-                            <div class="channels-card-body">
-                                <div class="channels-title">
-                                    <a href="#">Channels Name</a>
-                                </div>
-                                <div class="channels-view">
-                                    382,323 subscribers
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="channels-card">
-                            <div class="channels-card-image">
-                                <a href="#"><img class="img-fluid" src="img/s3.png" alt=""></a>
-                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-secondary btn-sm">Subscribed <strong>1.4M</strong></button></div>
-                            </div>
-                            <div class="channels-card-body">
-                                <div class="channels-title">
-                                    <a href="#">Channels Name <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span></a>
-                                </div>
-                                <div class="channels-view">
-                                    382,323 subscribers
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="channels-card">
-                            <div class="channels-card-image">
-                                <a href="#"><img class="img-fluid" src="img/s4.png" alt=""></a>
-                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-                            </div>
-                            <div class="channels-card-body">
-                                <div class="channels-title">
-                                    <a href="#">Channels Name</a>
-                                </div>
-                                <div class="channels-view">
-                                    382,323 subscribers
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

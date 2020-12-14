@@ -6,15 +6,19 @@ use App\Models\future_artists;
 use App\Models\videos;
 use Illuminate\Http\Request;
 use FFMpeg;
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     //
-    public function Homepage(){
-        $future = new future_artists();
+    public function Homepage(){$future = new future_artists();
         $artists = $future->GetArtists();
         $videos = new videos();
         $get_videos = $videos->GetAllVideos();
-        return view('homepage', ["artists" => $artists, "videos" => $get_videos]);
+        $upload = DB::select("
+        SELECT COUNT(video.id) as count_video, users.id, users.name, users.avatar_img FROM users, video where users.id = video.id_created group by users.id order by count_video desc limit 4
+        ");
+
+        return view('homepage', ["artists" => $artists, "videos" => $get_videos, "uploaders" => $upload]);
     }
     //
     public function test(){
@@ -40,6 +44,8 @@ class HomeController extends Controller
         $data = $video->getVideoArtist($id);
         return view('categories.detail', ["artist" => $get, "videos" => $data]);
     }
+
+
 
 
 }
