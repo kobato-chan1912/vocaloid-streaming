@@ -24,13 +24,13 @@ class HomeController extends Controller
             'timeout'          => 3600, // The timeout for the underlying process
             'ffmpeg.threads'   => 12,   // The number of threads that FFMpeg should use
         ));
-        $video = $ffmpeg->open('https://anime47.imfast.io/%E3%80%90MAD%E3%80%91%20Though%20my%20song%20has%20no%20shape.MP4');
+        $video = $ffmpeg->open('https://anime47.imfast.io/%5BDoremi-FS%5D%20glow%20-%20Keeno%20%28Magical%20Mirai%202015%29.mp4');
         var_dump($video->getFormat());
         echo gmdate("i:s", 258.020000);
 
         $frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(06));
-        mkdir("img/screens/01", 0700);
-        $frame->save("img/screens/01/01_screen.jpg");
+        mkdir("img/screens/02", 0700);
+        $frame->save("img/screens/02/02_screen.jpg");
 
     }
     public function GetCategories($id){

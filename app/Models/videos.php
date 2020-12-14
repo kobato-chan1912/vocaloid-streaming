@@ -13,14 +13,15 @@ class videos extends Model
     protected $table = "video";
     public function GetAllVideos(){
         return DB::table($this->table)
-            ->select("*")
+            ->select("video.*", "users.name")
             ->join('users', 'users.id', '=', 'video.id_created')
 
             ->get();
     }
     public function getVideoDetail($id){
         return DB::table($this->table)
-            ->select("*")
+            ->select("video.*", "users.name", "categories_detail.cate_detail_name")
+
             ->join('categories_detail', 'categories_detail.id', '=', 'video.cate_detail_id')
             ->join('users', 'users.id', '=', 'video.id_created')
 
@@ -29,7 +30,7 @@ class videos extends Model
     }
     public function getVideoArtist($id_artist){
         return DB::table($this->table)
-            ->select("*")
+            ->select("video.*", "users.name")
             ->join("users", "users.id", "=", "video.id_created")
             ->where("cate_detail_id", $id_artist)
             ->get();

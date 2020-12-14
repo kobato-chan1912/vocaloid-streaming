@@ -113,16 +113,20 @@
         </li>
         @endforeach
 
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-list-alt"></i>
-                <span>Login/Register</span>
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{route('login')}}">Login</a>
-                <a class="dropdown-item" href="{{route('register')}}">Register</a>
-            </div>
-        </li>
+        @if(session("LoggedUser"))
+        @else
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>Login/Register</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{route('login')}}">Login</a>
+                    <a class="dropdown-item" href="{{route('register')}}">Register</a>
+                </div>
+            </li>
+        @endif
+
     </ul>
     <div id="content-wrapper">
         <div class="container-fluid pb-0">

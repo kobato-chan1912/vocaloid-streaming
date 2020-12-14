@@ -59,6 +59,12 @@
                     </form>
                     <div class="text-center mt-5">
                         <p class="light-gray">Don’t have an account? <a href="{{route('register')}}">Sign Up</a></p>
+                        <div class="">
+                            <div class="app">
+                                <a href="#"><img alt="" src="img/spons/tiktok.png"></a>
+                                <a href="#"><img alt="" src="img/spons/nico.png"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
