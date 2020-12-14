@@ -877,6 +877,7 @@ Version: 1.0
 }
  .video-card-body {
      padding: 12px;
+     height: 100px;
 }
  .video-card-list .video-card-image {
      float: left;
