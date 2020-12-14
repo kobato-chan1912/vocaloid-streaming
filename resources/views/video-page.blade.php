@@ -27,8 +27,14 @@
                             </div>
                             <div class="single-video-author box mb-3">
 {{--                                <div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>--}}
-                                <img class="img-fluid" src="{{asset("img/avatar/1.jpg")}}" alt="">
-                                <p><a href="#"><strong>{{$data[0]->name}}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+                                <img class="img-fluid" src="{{asset($data[0]->avatar_img)}}" alt="">
+                                <p><a href="#"><strong>{{$data[0]->name}}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified">
+
+                                        @if ($data[0]->verify_id == 1)
+                                        <i class="fas fa-check-circle text-success"></i>
+                                        @else
+                                        @endif
+                                    </span></p>
                                 <small>Published on {{$data[0]->upload_date}}</small>
                             </div>
                             <div class="single-video-info-content box mb-3">
@@ -72,7 +78,10 @@
                                                 <a href="{{route("watch", $video->id)}}">{{$video->title}}</a>
                                             </div>
                                             <div class="video-page text-success">
-                                                {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                                {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"> @if ($video->verify_id == 1)
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    @else
+                                                    @endif</a>
                                             </div>
                                             <div class="video-view">
                                                 {{$video->viewers}} &nbsp;<i class="fas fa-calendar-alt"></i> {{$video->upload_date}}

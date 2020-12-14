@@ -34,6 +34,7 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->avatar_img = "img/avatar/default.jpg";
+        $user->verify_id = 2;
         $query = $user->save();
 
         return redirect()->route('login')->with(["success" => "Your account has been created. Please Log in."]);
@@ -45,8 +46,16 @@ class AuthController extends Controller
             if (Hash::check($request->password, $user->password))
             {
                 $request->session()->put('LoggedUser', $user); // Logged in.
+                if (strpos(session("previous"), "register") !== false){
+
+                }
                 if (session("previous") != (session("current"))) {
-                    return redirect(session('previous'));
+                    if (strpos(session("previous"), "register") !== false){ //found register.
+                        return redirect()->route('home');
+                    }
+                    else {
+                        return redirect(session('previous'));
+                    }
                 }
                 else {
                     return redirect()->route('home');

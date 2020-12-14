@@ -13,14 +13,14 @@ class videos extends Model
     protected $table = "video";
     public function GetAllVideos(){
         return DB::table($this->table)
-            ->select("video.*", "users.name")
+            ->select("video.*", "users.name", "users.verify_id")
             ->join('users', 'users.id', '=', 'video.id_created')
 
             ->get();
     }
     public function getVideoDetail($id){
         return DB::table($this->table)
-            ->select("video.*", "users.name", "categories_detail.cate_detail_name")
+            ->select("video.*", "users.name", "users.verify_id" , "users.avatar_img", "categories_detail.cate_detail_name")
 
             ->join('categories_detail', 'categories_detail.id', '=', 'video.cate_detail_id')
             ->join('users', 'users.id', '=', 'video.id_created')
@@ -30,7 +30,7 @@ class videos extends Model
     }
     public function getVideoArtist($id_artist){
         return DB::table($this->table)
-            ->select("video.*", "users.name")
+            ->select("video.*", "users.name", "users.verify_id")
             ->join("users", "users.id", "=", "video.id_created")
             ->where("cate_detail_id", $id_artist)
             ->get();
@@ -51,7 +51,7 @@ class videos extends Model
 
     public function theSameArtist($id_cate, $id_video){
         return DB::table($this->table)
-            ->select("video.*", "users.name")
+            ->select("video.*", "users.name" , "users.verify_id")
             ->join("users", "users.id", "=", "video.id_created")
             ->where("cate_detail_id", $id_cate)
             ->where("video.id", "!=", $id_video)

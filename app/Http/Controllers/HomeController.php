@@ -15,7 +15,7 @@ class HomeController extends Controller
         $videos = new videos();
         $get_videos = $videos->GetAllVideos();
         $upload = DB::select("
-        SELECT COUNT(video.id) as count_video, users.id, users.name, users.avatar_img FROM users, video where users.id = video.id_created group by users.id order by count_video desc limit 4
+        SELECT COUNT(video.id) as count_video, users.id, users.name, users.verify_id, users.avatar_img FROM users, video where users.id = video.id_created group by users.id order by count_video desc limit 4
         ");
 
         return view('homepage', ["artists" => $artists, "videos" => $get_videos, "uploaders" => $upload]);
@@ -28,13 +28,13 @@ class HomeController extends Controller
             'timeout'          => 3600, // The timeout for the underlying process
             'ffmpeg.threads'   => 12,   // The number of threads that FFMpeg should use
         ));
-        $video = $ffmpeg->open('https://anime47.imfast.io/Orangestar%20-%20%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%8A%E3%82%A4%E3%82%B5%E3%82%99%E3%83%BC%20(feat.%20%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF)%20Official%20Video.mp4');
+        $video = $ffmpeg->open('https://anime47.imfast.io/Orangestar%20-%20%E6%BF%AB%E8%A7%B4%E7%94%9F%E5%91%BD%20%28feat.%20IA%29%20Official%20Video.mp4');
         var_dump($video->getFormat());
         echo gmdate("i:s", 258.020000);
 
         $frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(06));
-        mkdir("img/screens/04", 0700);
-        $frame->save("img/screens/04/04_screen.jpg");
+        mkdir("img/screens/05", 0700);
+        $frame->save("img/screens/05/05_screen.jpg");
 
     }
     public function GetCategories($id){

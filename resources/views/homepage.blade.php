@@ -212,7 +212,10 @@
                                     <a href="{{route("watch", $video->id)}}">{{$video->title}}</a>
                                 </div>
                                 <div class="video-page text-success">
-                                    {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"> @if ($video->verify_id == 1)
+                                            <i class="fas fa-check-circle text-success"></i>
+                                        @else
+                                        @endif</a>
                                 </div>
                                 <div class="video-view">
                                     {{$video->viewers}} &nbsp;<i class="fas fa-calendar-alt"></i> {{$video->upload_date}}
@@ -251,7 +254,10 @@
                             <div class="channels-card-body">
                                 <div class="channels-title">
                                     <a href="#">{{$upload->name}}</a>
-                                    <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span>
+                                    <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified">@if ($upload->verify_id == 1)
+                                            <i class="fas fa-check-circle"></i>
+                                        @else
+                                        @endif</span>
                                 </div>
                                 <div class="channels-view">
                                     382,323 subscribers
