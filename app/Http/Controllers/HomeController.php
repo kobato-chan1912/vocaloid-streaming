@@ -40,4 +40,6 @@ class HomeController extends Controller
         $data = $video->getVideoArtist($id);
         return view('categories.detail', ["artist" => $get, "videos" => $data]);
     }
+
+
 }

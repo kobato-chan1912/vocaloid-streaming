@@ -35,4 +35,35 @@ class videos extends Model
             ->where("cate_detail_id", $id_artist)
             ->get();
     }
+    public function GetID_Detail($id_video){
+        return DB::table($this->table)
+            ->select("cate_detail_id")
+            ->where("id", $id_video)
+            ->get();
+    }
+    public function GetViewers($id){
+        return DB::table($this->table)
+            ->select("viewers")
+            ->where("id", $id)
+            ->get();
+    }
+
+
+    public function theSameArtist($id_cate, $id_video){
+        return DB::table($this->table)
+            ->select("video.*", "users.name")
+            ->join("users", "users.id", "=", "video.id_created")
+            ->where("cate_detail_id", $id_cate)
+            ->where("video.id", "!=", $id_video)
+            ->limit(7)
+            ->get();
+    }
+    public function UpdateViewers($id, $count){
+        DB::table($this->table)
+            ->where("id", $id)
+            ->update([
+               "viewers" => $count
+            ]);
+
+    }
 }
