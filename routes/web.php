@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use League\Flysystem\Filesystem;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
+use Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +31,6 @@ Route::get('register', function (){
 Route::post('register','AuthController@Register');
 
 Route::get ('logout', 'AuthController@logout')->name('logout');
+Route::get('put', function (){
+
+});
