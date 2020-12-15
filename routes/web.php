@@ -31,6 +31,10 @@ Route::get('register', function (){
 Route::post('register','AuthController@Register');
 
 Route::get ('logout', 'AuthController@logout')->name('logout');
-Route::get('put', function (){
+Route::get('blabla', function (){
+//    Storage::disk("google")->put("test.txt", "Hello world");
+//    $files = Storage::disk("google")->setVisibility("1pSu7CxXdUL9Ap0pfp84K0RSBtiaCucn4", "public");
 
+    $file = Storage::disk("google")->listContents();
+    var_dump($file);
 });
