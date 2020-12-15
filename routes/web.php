@@ -5,7 +5,7 @@ use League\Flysystem\Filesystem;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter;
-
+use Illuminate\Support\Facades\File;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +38,7 @@ Route::get('blabla', function (){
     $file = Storage::disk("google")->listContents();
     var_dump($file);
 });
+Route::get('upload', function (){{
+    return view('upload');
+}});
+Route::post('upload', 'UploadController@Upload');
