@@ -12,10 +12,16 @@ use Illuminate\Support\Facades\File;
 class UploadController extends Controller
 {
     //
+
+    public function testUpload(Request $request){
+        var_dump($request->all());
+    }
+
     public function Upload(Request $request)
     {
 
-        if ($request->hasFile('video')) {
+        if ($request->hasFile('aksfileupload')) {
+            echo "Có";
 
             /**
              * Uploading to server.
@@ -23,7 +29,7 @@ class UploadController extends Controller
              * @author Mai Viết Dũng.
              */
 
-            $file = $request->video;
+            $file = $request->aksfileupload[0];
             $original_file = $file->getClientOriginalName();
             $file_edit_name = str_replace(" ", "_", $original_file);
             $url = asset("temp_video").'/'.$file_edit_name;
