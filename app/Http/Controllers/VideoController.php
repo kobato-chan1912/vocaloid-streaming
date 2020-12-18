@@ -21,4 +21,27 @@ class VideoController extends Controller
         $get = $video->getVideoDetail($id);
         return view("video-page", ["data" => $get, "up_next" => $the_same]);
     }
+
+
+    /*
+     * [
+     *  "id" => 1,
+     *  "preview_url" => "01_screen.jpg",
+     *  "drive_url" => "127c6xM4QxrbKjrFv2lhRx5vNDRURzXiZ",
+     *  "cdn_url" => "https://anime47.imfast.io/【MAD】 Though my song has no shape.MP4"
+     *  "cate_id" => 2,
+     *  "cate_detail_id" => 2,
+     *  "id_created" => 1,
+     *  "title" => "[MAD/Utaite] Through My Song Has No Shape - Hanatan",
+     *  "viewers" => 10,
+     *  "file_name" => 【MAD】 Though my song has no shape.MP4,
+     *  "duration" => "04:18",
+     *  "id_format" => 03,
+     *  "description" => "a love song doriko",
+     *  "upload_date" => "2020-12-12 12:45:56"
+     * ]
+     *
+     *
+     * */
+
 }

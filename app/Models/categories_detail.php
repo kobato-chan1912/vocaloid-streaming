@@ -15,4 +15,10 @@ class categories_detail extends Model
             ->select("*")
             ->get();
     }
+    public function getDetail($cate_id){
+        return DB::table($this->table)
+            ->select("*")
+            ->where("id_categories", $cate_id)
+            ->get();
+    }
 }

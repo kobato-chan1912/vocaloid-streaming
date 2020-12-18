@@ -66,4 +66,27 @@ class videos extends Model
             ]);
 
     }
+    public function getLast(){
+        return DB::table($this->table)->latest("id")->first();
+    }
+
+    public function insert_video ($preview_url, $drive_url, $cdn_url, $cate_id, $cate_detail_id, $id_created, $title, $viewers, $file_name, $duration, $id_format , $description, $upload_date){
+        DB::table($this->table)
+            ->insert([
+               ["preview_url" => $preview_url,
+                   "cdn_url" => $cdn_url,
+                   "cate_id" => $cate_id,
+                   "cate_detail_id" => $cate_detail_id,
+                   "id_created" => $id_created,
+                   "title" => $title,
+                   "viewers" => $viewers,
+                   "file_name" => $file_name,
+                   "id_format" => $id_format,
+                   "duration" => $duration,
+                   "description" => $description,
+                   "upload_date" => $upload_date,
+                   "drive_url" => $drive_url]
+            ]);
+
+    }
 }

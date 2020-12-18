@@ -158,6 +158,9 @@
                                     <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
                                 </div>
                             </div>
+                            @if(session()->get('success'))
+                            <div class="text-success justify-content-center text-center" style="margin: 0 auto"> {{session()->get('success')}} </div>
+                            @endif
                             <h6>Futured</h6>
                         </div>
                     </div>
