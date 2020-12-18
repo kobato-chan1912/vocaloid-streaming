@@ -15,9 +15,10 @@ class videos extends Model
         return DB::table($this->table)
             ->select("video.*", "users.name", "users.verify_id")
             ->join('users', 'users.id', '=', 'video.id_created')
-
+            ->orderBy('video.upload_date', 'DESC')
             ->get();
     }
+
     public function getVideoDetail($id){
         return DB::table($this->table)
             ->select("video.*", "users.name", "users.verify_id" , "users.avatar_img", "categories_detail.cate_detail_name")
@@ -26,6 +27,16 @@ class videos extends Model
             ->join('users', 'users.id', '=', 'video.id_created')
 
             ->where("video.id", $id)
+            ->get();
+    }
+    public function getVideoUser($id_user){
+        return DB::table($this->table)
+            ->select("video.*", "users.name", "users.verify_id" , "users.avatar_img", "categories_detail.cate_detail_name")
+
+            ->join('categories_detail', 'categories_detail.id', '=', 'video.cate_detail_id')
+            ->join('users', 'users.id', '=', 'video.id_created')
+
+            ->where("video.id_created", $id_user)
             ->get();
     }
     public function getVideoArtist($id_artist){

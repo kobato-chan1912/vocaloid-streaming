@@ -24,7 +24,7 @@
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
         <li class="nav-item mx-1">
-            <a class="nav-link" href="upload.html">
+            <a class="nav-link" href="{{route('upload')}}">
                 <i class="fas fa-plus-circle fa-fw"></i>
                 Upload Video
             </a>
@@ -37,8 +37,8 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
-                    <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
-                    <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+{{--                    <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>--}}
+{{--                    <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>--}}
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
                 </div>

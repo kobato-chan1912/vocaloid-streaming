@@ -16,5 +16,5 @@
     <link href="{{asset("css/loader.css")}}" rel="stylesheet">
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{asset("vendor/owl-carousel/owl.carousel.css")}}">
-    <link rel="stylesheet" href="{{asset("vendor/owl-carousel/owl.theme.css")}}>
+    <link rel="stylesheet" href="{{asset("vendor/owl-carousel/owl.theme.css")}}">
 </head>
