@@ -38,7 +38,7 @@ Route::get('blabla', function (){
     $file = Storage::disk("google")->listContents();
     var_dump($file);
 });
-Route::get('upload', 'UploadController@getUpload' );
+Route::get('upload', 'UploadController@getUpload');
 Route::post('upload', 'UploadController@Upload');
 
 //api

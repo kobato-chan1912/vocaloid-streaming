@@ -43,7 +43,8 @@
                                 <h6>Artist :</h6>
                                 <p>{{$data[0]->cate_detail_name}}</p>
                                 <h6>Description :</h6>
-                                <p> {{$data[0]->description}}</p>
+                                <p> {!! nl2br(e(@$data['0']->description)) !!}
+                                </p>
                                 <h6>Tags :</h6>
                                 <p class="tags mb-0">
                                     <span><a href="#">{{$data[0]->cate_detail_name}}</a></span>

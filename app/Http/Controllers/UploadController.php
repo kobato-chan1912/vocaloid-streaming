@@ -24,14 +24,14 @@ class UploadController extends Controller
         $data = Storage::disk("google")->listContents();
         foreach ($data as $file){
             if ($file["name"] == $file_name){
-                return $file->path;
+                return $file["path"];
             }
         }
     }
 
     public function Upload(Request $request)
     {
-        var_dump($request->all());
+
 
         if ($request->hasFile('aksfileupload')) {
 
@@ -40,12 +40,13 @@ class UploadController extends Controller
              *
              * @author Mai Viết Dũng.
              */
-
+            $user_id = $request->session()->get('LoggedUser')["id"];
             $videos = new videos();
-            $last_video = $videos->getLast();
+            $last_video = $videos->getLast()->id;
+
             $new_id = $last_video + 1;
             $new_format_id = sprintf("%02d", $new_id);
-            $user_id = $request->session()->get('LoggedUser')["id"];
+
 
             /**
              * Uploading to server.
@@ -75,6 +76,8 @@ class UploadController extends Controller
              *
              * @author
              */
+
+
             // Get the cdn.
             $cdn_url = $this->cdn_get($original_file);
 
@@ -114,10 +117,12 @@ class UploadController extends Controller
              * @author
              */
 
-            $insert = $videos->insert_video($preview_file, $cdn_url, $request->e3, $request->e4, $user_id
+            $insert = $videos->insert_video($preview_file, $cdn_url, $request->cate, $request->cate_detail, $user_id
             , $request->title, 0, $original_file, $new_format_id, $duration, $request->e2, $time, $drive_url
 
             );
+
+
 
             /**
              * Empty the temp file.
@@ -125,10 +130,14 @@ class UploadController extends Controller
              * @author
              */
 
-            if ($insert){
-                File::delete("temp_video/$file_edit_name");
-                return redirect()->route('home')->with(["success" => "Your video has been uploaded. Please wait for the system to process."]);
-            }
+
+            File::delete("temp_video/$file_edit_name");
+            return redirect()->route('home')->with(["success" => "Your video has been uploaded. Please wait for the system to process."]);
+
+        }
+
+        else {
+            echo "No file loaded";
         }
     }
 }

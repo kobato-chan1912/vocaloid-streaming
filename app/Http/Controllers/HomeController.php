@@ -22,7 +22,25 @@ class HomeController extends Controller
 
         return view('homepage', ["artists" => $artists, "videos" => $get_videos, "uploaders" => $upload]);
     }
-    //
+    public function getPreviewDrive($file_name)
+    {
+
+        $data = Storage::disk("google")->listContents();
+
+        foreach ($data as $file) {
+
+            if ($file["name"] == $file_name) {
+
+                return $file["path"];
+
+            }
+        }
+    }
+
+
+
+
+        //
     public function test(Request $request){
         $ffmpeg = FFMpeg\FFMpeg::create(array(
             'ffmpeg.binaries'  => '/usr/local/bin/ffmpeg',
@@ -48,6 +66,10 @@ class HomeController extends Controller
         $videos = new videos();
         $last_video = $videos->getLast();
         var_dump(sprintf("%02d", "124"));
+        $drive_url = $this->getPreviewDrive("utaite.png");
+        var_dump($drive_url);
+
+
 
 //        $frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(06));
 //        mkdir("img/screens/05", 0700);

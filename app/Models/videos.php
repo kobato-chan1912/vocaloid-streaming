@@ -70,7 +70,7 @@ class videos extends Model
         return DB::table($this->table)->latest("id")->first();
     }
 
-    public function insert_video ($preview_url, $drive_url, $cdn_url, $cate_id, $cate_detail_id, $id_created, $title, $viewers, $file_name, $duration, $id_format , $description, $upload_date){
+    public function insert_video ($preview_url, $cdn_url, $cate_id, $cate_detail_id,  $id_created, $title, $viewers, $file_name,$id_format, $duration, $description, $upload_date, $drive_url){
         DB::table($this->table)
             ->insert([
                ["preview_url" => $preview_url,
