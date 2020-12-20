@@ -83,17 +83,63 @@
                         @endforeach
 
                 </div>
+{{--                {{$videos->lastPage()}}--}}
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center pagination-sm mb-0">
-                        <li class="page-item disabled">
-                            <a tabindex="-1" href="#" class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
+
+                        @if($page == 1 || !isset($page))
+                            @if($videos->lastPage()==1)
+                                <li class="page-item disabled">
+                                    <a tabindex="-1" href="#" class="page-link">Previous</a>
+                                </li>
+
+
+
+                                <li class="page-item active"><a href="id={{$id}}?page=1" class="page-link">1</a></li>
+
+                                <li class="page-item disabled">
+                                    <a tabindex="-1" href="#" class="page-link">Next</a>
+                                </li>
+                            @else
+                            <li class="page-item disabled">
+                                <a tabindex="-1" href="#" class="page-link">Previous</a>
+                            </li>
+
+
+
+                            <li class="page-item active"><a href="id={{$id}}?page=1" class="page-link">1</a></li>
+                            <li class="page-item"><a href="id={{$id}}?page=2" class="page-link">2</a></li>
+                            <li class="page-item"><a href="id={{$id}}?page=3" class="page-link">3</a></li>
+
+
+                            <li class="page-item">
+                                <a href="id={{$id}}?page=2" class="page-link">Next</a>
+                            </li>
+                            @endif
+                        @elseif(($page!=1) && ($page!=$videos->lastPage()))
                         <li class="page-item">
-                            <a href="#" class="page-link">Next</a>
+                            <a tabindex="-1" href="id={{$id}}?page={{$page-1}}" class="page-link">Previous</a>
                         </li>
+
+
+                        <li class="page-item"><a href="id={{$id}}?page={{$page-1}}" class="page-link">{{$page-1}}</a></li>
+
+                        <li class="page-item active"><a href="id={{$id}}?page={{$page}}" class="page-link">{{$page}}</a></li>
+                        <li class="page-item"><a href="id={{$id}}?page={{$page+1}}" class="page-link">{{$page+1}}</a></li>
+
+
+                        <li class="page-item">
+                            <a href="id={{$id}}?page={{$page+1}}" class="page-link">Next</a>
+                        </li>
+                        @else
+                            <li class="page-item">
+                                <a tabindex="-1" href="id={{$id}}?page={{$page-1}}" class="page-link">Previous</a>
+                            </li>
+                            <li class="page-item"><a href="id={{$id}}?page={{$page-1}}" class="page-link">{{$page-1}}</a></li>
+
+                            <li class="page-item active"><a href="id={{$id}}?page={{$page}}" class="page-link">{{$page}}</a></li>
+
+                        @endif
                     </ul>
                 </nav>
             </div>

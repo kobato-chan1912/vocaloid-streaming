@@ -10,6 +10,9 @@ Version: 1.0
     $(function() {
         $(".preloader").fadeOut();
     });
+
+
+
   // Toggle the side navigation
    $(document).on('click', '#sidebarToggle', function(e) {
     e.preventDefault();

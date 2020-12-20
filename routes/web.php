@@ -50,3 +50,6 @@ Route::prefix('account')->middleware("CheckLogin")->group(function (){
     Route::get('/password', 'AccountController@ChangePassword')->name('change_password');
 
 });
+
+// Filter: Home videos.
+Route::get('videos/home/sort={filter}', 'HomeController@Filter')->name('sort_home');

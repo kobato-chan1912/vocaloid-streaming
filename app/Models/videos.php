@@ -16,6 +16,7 @@ class videos extends Model
             ->select("video.*", "users.name", "users.verify_id")
             ->join('users', 'users.id', '=', 'video.id_created')
             ->orderBy('video.upload_date', 'DESC')
+            ->limit(12)
             ->get();
     }
 
@@ -44,7 +45,9 @@ class videos extends Model
             ->select("video.*", "users.name", "users.verify_id")
             ->join("users", "users.id", "=", "video.id_created")
             ->where("cate_detail_id", $id_artist)
-            ->get();
+            ->orderBy("video.upload_date", "DESC")
+            ->paginate("12");
+
     }
     public function GetID_Detail($id_video){
         return DB::table($this->table)
@@ -100,4 +103,24 @@ class videos extends Model
             ]);
 
     }
+
+
+        /**
+         * Filter videos.
+         *
+         * @author Mai Viết Dũng.
+         */
+
+        // Get Videos In homepage.
+
+        public function GetByHomes ($filter){
+            return DB::table($this->table)
+                ->select("video.*", "users.name", "users.verify_id")
+                ->join('users', 'users.id', '=', 'video.id_created')
+                ->orderBy($filter, 'DESC')
+                ->limit(12)
+                ->get();
+        }
+
+
 }

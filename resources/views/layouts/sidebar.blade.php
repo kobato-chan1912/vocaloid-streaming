@@ -23,7 +23,7 @@
                 @foreach($cate_detail as $detail)
                     @if($cate_data->id == $detail->id_categories)
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{route('categories', $detail->id)}}">{{$detail->cate_detail_name}}</a>
+                        <a class="dropdown-item" href="{{route('categories', [$detail->id])}}">{{$detail->cate_detail_name}}</a>
 
                     @endif
                 @endforeach

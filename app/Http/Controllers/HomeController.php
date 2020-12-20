@@ -76,12 +76,13 @@ class HomeController extends Controller
 //        $frame->save("img/screens/05/05_screen.jpg");
 
     }
-    public function GetCategories($id){
+    public function GetCategories($id, Request $request){
         $detail = new future_artists();
         $get = $detail->GetArtistDetail($id);
         $video = new videos();
         $data = $video->getVideoArtist($id);
-        return view('categories.detail', ["artist" => $get, "videos" => $data]);
+
+        return view('categories.detail', ["artist" => $get, "videos" => $data, "id" => $id, "page" => $request->page]);
     }
 
     public function getCate($cate_id){
@@ -90,6 +91,17 @@ class HomeController extends Controller
         return view("ajax.categories_ajax", ["data" => $data]);
     }
 
+    /**
+     * Filter videos.
+     *
+     * @author Mai Viết Dũng.
+     */
+
+    public function Filter($filter){
+        $video = new videos();
+        $data = $video->GetByHomes($filter);
+        return view("ajax.videos_home_ajax", ["videos" => $data]);
+    }
 
 
 
