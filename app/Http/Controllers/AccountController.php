@@ -17,4 +17,7 @@ class AccountController extends Controller
     public function ChangeProfile(){
         return view('account.profile');
     }
+    public function ChangePassword(){
+        return view('account.change_password');
+    }
 }

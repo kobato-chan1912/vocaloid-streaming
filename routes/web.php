@@ -44,9 +44,9 @@ Route::post('upload', 'UploadController@Upload')->middleware('CheckLogin');
 Route::get("get_categories/cate_id={cate_id}", 'HomeController@getCate');
 
 // Account prefix.
-Route::prefix('account')->group(function (){
+Route::prefix('account')->middleware("CheckLogin")->group(function (){
     Route::get('/videos', 'AccountController@videoManager' )->name('videos_manager');
     Route::get('/avatar', 'AccountController@ChangeProfile')->name('profile_picture');
-    Route::get('/ChangePassword', 'AccountController@ChangePassword')->name('change_password');
+    Route::get('/password', 'AccountController@ChangePassword')->name('change_password');
 
 });
