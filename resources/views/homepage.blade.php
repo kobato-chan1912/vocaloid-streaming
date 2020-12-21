@@ -145,47 +145,44 @@
                 </div>
             </div>
             <div class="top-category section-padding mb-4">
+                @if(session("success"))
+                <div class="text-success row text-center justify-content-center align-content-center">{{session("success")}}</div>
+                @endif
                 <div class="row">
+
 
                     <div class="container mw-100">
                         <div class="carousel slide" id="main-carousel" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-{{--                                <li data-target="#main-carousel" data-slide-to="1"></li>--}}
+                                <li data-target="#main-carousel" data-slide-to="1"></li>
 {{--                                <li data-target="#main-carousel" data-slide-to="2"></li>--}}
 {{--                                <li data-target="#main-carousel" data-slide-to="3"></li>--}}
                             </ol><!-- /.carousel-indicators -->
 
                             <div class="carousel-inner">
+
                                 <div class="carousel-item active">
+                                    <a href="{{route('watch', 11)}}">
                                     <img class="d-block img-fluid" src="img/slides/01.png" alt="">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h2 style="font-family: 'Langar', cursive;">Find a reason to sing</h2>
+                                    <div class="carousel-caption d-none d-md-block ">
+                                        <h2 style="font-family: 'Indie Flower', cursive;">Find a reason to sing</h2>
                                         <p style="font-family: 'Indie Flower', cursive; font-size: 13pt; "> [PV] Connecting / halyosy feat. Vocaloid (Collaboration) </p>
 
                                     </div>
+                                    </a>
+
                                 </div>
-{{--                                <div class="carousel-item">--}}
-{{--                                    <img class="d-block img-fluid" src="https://s19.postimg.cc/lmubh3h0j/slide2.jpg" alt="">--}}
-{{--                                    <div class="carousel-caption d-none d-md-block">--}}
-{{--                                        <h3>Mountain</h3>--}}
-{{--                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit, numquam minus!</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="carousel-item">--}}
-{{--                                    <img class="d-block img-fluid" src="https://s19.postimg.cc/99hh9lr5v/slide3.jpg" alt="">--}}
-{{--                                    <div class="carousel-caption d-none d-md-block">--}}
-{{--                                        <h3>Mountain</h3>--}}
-{{--                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit, numquam minus!</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="carousel-item">--}}
-{{--                                    <img src="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="" class="d-block img-fluid">--}}
-{{--                                    <div class="carousel-caption d-none d-md-block">--}}
-{{--                                        <h3>Mountain</h3>--}}
-{{--                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit, numquam minus!</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+
+                                <div class="carousel-item">
+                                    <img class="d-block img-fluid" src="img/slides/05.png" alt="" height="1434px">
+                                    <div class="carousel-caption d-none d-md-block" style="background: #f8f9fa6b;">
+                                        <h2 style="font-family: 'Indie Flower', cursive;">The heartbeat I surely felt at that time</h2>
+                                        <p style="font-family: 'Indie Flower', cursive; font-size: 13pt; color: black "> [PV] Connecting / halyosy feat. Vocaloid (Collaboration) </p>
+
+                                    </div>
+                                </div>
+
                             </div><!-- /.carousel-inner -->
 
                             <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
@@ -205,10 +202,10 @@
                                 <div class="item">
 
                                     <div class="category-item">
-                                        <a href="#">
+                                        <a href="{{route('categories', $future_artist->id_detail)}}">
                                             <img class="img-fluid" src="{{$future_artist->image_artist}}" alt="">
                                             <h6>{{$future_artist->name_artist}}</h6>
-                                            <p>{{$future_artist->views}} views</p>
+                                            <p>Play now</p>
                                         </a>
                                     </div>
                                 </div>

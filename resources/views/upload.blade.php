@@ -68,7 +68,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="e1">Video Title</label>
-                                        <input type="text" name="title" placeholder="Contrary to popular belief, Lorem Ipsum (2019) is not." id="e1" class="form-control">
+                                        <input type="text" name="title" placeholder="Type video title here. Recommend in a clear way." id="e1" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
