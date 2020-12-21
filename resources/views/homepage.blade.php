@@ -37,7 +37,7 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" id = "search" placeholder="Search for...">
             <div class="input-group-append">
                 <button class="btn btn-light" type="button">
                     <i class="fas fa-search"></i>
@@ -146,38 +146,72 @@
             </div>
             <div class="top-category section-padding mb-4">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="main-title">
-                            <div class="btn-group float-right right-action">
-                                <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+
+                    <div class="container mw-100">
+                        <div class="carousel slide" id="main-carousel" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+{{--                                <li data-target="#main-carousel" data-slide-to="1"></li>--}}
+{{--                                <li data-target="#main-carousel" data-slide-to="2"></li>--}}
+{{--                                <li data-target="#main-carousel" data-slide-to="3"></li>--}}
+                            </ol><!-- /.carousel-indicators -->
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" src="img/slides/01.png" alt="">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h2 style="font-family: 'Langar', cursive;">Find a reason to sing</h2>
+                                        <p style="font-family: 'Indie Flower', cursive; font-size: 13pt; "> [PV] Connecting / halyosy feat. Vocaloid (Collaboration) </p>
+
+                                    </div>
                                 </div>
-                            </div>
-                            @if(session()->get('success'))
-                            <div class="text-success justify-content-center text-center" style="margin: 0 auto"> {{session()->get('success')}} </div>
-                            @endif
-                            <h6>Futured</h6>
-                        </div>
-                    </div>
+{{--                                <div class="carousel-item">--}}
+{{--                                    <img class="d-block img-fluid" src="https://s19.postimg.cc/lmubh3h0j/slide2.jpg" alt="">--}}
+{{--                                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                                        <h3>Mountain</h3>--}}
+{{--                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit, numquam minus!</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item">--}}
+{{--                                    <img class="d-block img-fluid" src="https://s19.postimg.cc/99hh9lr5v/slide3.jpg" alt="">--}}
+{{--                                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                                        <h3>Mountain</h3>--}}
+{{--                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit, numquam minus!</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item">--}}
+{{--                                    <img src="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="" class="d-block img-fluid">--}}
+{{--                                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                                        <h3>Mountain</h3>--}}
+{{--                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci esse vitae exercitationem fugit, numquam minus!</p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                            </div><!-- /.carousel-inner -->
+
+                            <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                                <span class="sr-only" aria-hidden="true">Prev</span>
+                            </a>
+                            <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                                <span class="sr-only" aria-hidden="true">Next</span>
+                            </a>
+                        </div><!-- /.carousel -->
+                    </div><!-- /.container -->
                     <div class="col-md-12">
                         <div class="owl-carousel owl-carousel-category">
 
                             @foreach($artists as $future_artist)
-                            <div class="item">
+                                <div class="item">
 
-                                <div class="category-item">
-                                    <a href="#">
-                                        <img class="img-fluid" src="{{$future_artist->image_artist}}" alt="">
-                                        <h6>{{$future_artist->name_artist}}</h6>
-                                        <p>{{$future_artist->views}} views</p>
-                                    </a>
+                                    <div class="category-item">
+                                        <a href="#">
+                                            <img class="img-fluid" src="{{$future_artist->image_artist}}" alt="">
+                                            <h6>{{$future_artist->name_artist}}</h6>
+                                            <p>{{$future_artist->views}} views</p>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
                         </div>
@@ -365,6 +399,16 @@
     }
 
 
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<script>
+    $("#search").typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    });
 
 
 </script>

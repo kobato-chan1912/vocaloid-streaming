@@ -72,10 +72,13 @@
                                     <a href="{{route("watch", $video->id)}}">{{$video->title}}</a>
                                 </div>
                                 <div class="video-page text-success">
-                                    {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    {{$video->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified">@if ($video->verify_id == 1)
+                                            <i class="fas fa-check-circle text-success"></i>
+                                        @else
+                                        @endif</a></a>
                                 </div>
                                 <div class="video-view">
-                                    {{$video->viewers}} views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                    {{$video->viewers}} views &nbsp;<i class="fas fa-calendar-alt"></i> {{$video->upload_date}}
                                 </div>
                             </div>
                         </div>

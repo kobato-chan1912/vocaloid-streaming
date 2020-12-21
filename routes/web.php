@@ -53,3 +53,6 @@ Route::prefix('account')->middleware("CheckLogin")->group(function (){
 
 // Filter: Home videos.
 Route::get('videos/home/sort={filter}', 'HomeController@Filter')->name('sort_home');
+
+
+//seaching route.
