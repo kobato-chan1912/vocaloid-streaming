@@ -51,9 +51,9 @@
                                     Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                    <a class="dropdown-item" href="?sort=related"><i class="fas fa-fw fa-star"></i> &nbsp; Related </a>
+                                    <a class="dropdown-item" href="?sort=viewers"><i class="fas fa-fw fa-signal"></i> &nbsp; Top Viewers </a>
+                                    <a class="dropdown-item" href="?sort=alphabet"><i class="fas fa-fw fa-times-circle"></i> &nbsp; A-Z </a>
                                 </div>
                             </div>
                             <h6>Videos</h6>
@@ -90,12 +90,12 @@
                         @if($page == 1 || !isset($page))
                             @if($videos->lastPage()==1)
                                 <li class="page-item disabled">
-                                    <a tabindex="-1" href="#" class="page-link">Previous</a>
+                                    <a tabindex="-1" href="" class="page-link">Previous</a>
                                 </li>
 
 
 
-                                <li class="page-item active"><a href="id={{$id}}?page=1" class="page-link">1</a></li>
+                                <li class="page-item active"><a href="{{$url}}1" class="page-link">1</a></li>
 
                                 <li class="page-item disabled">
                                     <a tabindex="-1" href="#" class="page-link">Next</a>
@@ -107,41 +107,41 @@
 
 
 
-                            <li class="page-item active"><a href="id={{$id}}?page=1" class="page-link">1</a></li>
-                            <li class="page-item"><a href="id={{$id}}?page=2" class="page-link">2</a></li>
-                            <li class="page-item"><a href="id={{$id}}?page=3" class="page-link">3</a></li>
+                            <li class="page-item active"><a href="{{$url}}1" class="page-link">1</a></li>
+                            <li class="page-item"><a href="{{$url}}2" class="page-link">2</a></li>
+                            <li class="page-item"><a href="{{$url}}3" class="page-link">3</a></li>
 
 
                             <li class="page-item">
-                                <a href="id={{$id}}?page=2" class="page-link">Next</a>
+                                <a href="{{$url}}2" class="page-link">Next</a>
                             </li>
                             @endif
                         @elseif(($page!=1) && ($page!=$videos->lastPage()))
                         <li class="page-item">
-                            <a tabindex="-1" href="id={{$id}}?page={{$page-1}}" class="page-link">Previous</a>
+                            <a tabindex="-1" href="{{$url}}{{$page-1}}" class="page-link">Previous</a>
                         </li>
 
 
-                        <li class="page-item"><a href="id={{$id}}?page={{$page-1}}" class="page-link">{{$page-1}}</a></li>
+                        <li class="page-item"><a href="{{$url}}{{$page-1}}" class="page-link">{{$page-1}}</a></li>
 
-                        <li class="page-item active"><a href="id={{$id}}?page={{$page}}" class="page-link">{{$page}}</a></li>
-                        <li class="page-item"><a href="id={{$id}}?page={{$page+1}}" class="page-link">{{$page+1}}</a></li>
+                        <li class="page-item active"><a href="{{$url}}{{$page}}" class="page-link">{{$page}}</a></li>
+                        <li class="page-item"><a href="{{$url}}{{$page+1}}" class="page-link">{{$page+1}}</a></li>
 
 
                         <li class="page-item">
-                            <a href="id={{$id}}?page={{$page+1}}" class="page-link">Next</a>
+                            <a href="{{$url}}{{$page+1}}" class="page-link">Next</a>
                         </li>
                         @else
-                            <li class="page-item">
-                                <a tabindex="-1" href="id={{$id}}?page={{$page-1}}" class="page-link">Previous</a>
-                            </li>
-                            <li class="page-item"><a href="id={{$id}}?page={{$page-1}}" class="page-link">{{$page-1}}</a></li>
+                    <li class="page-item">
+                        <a tabindex="-1" href="{{$url}}{{$page-1}}" class="page-link">Previous</a>
+                    </li>
+                    <li class="page-item"><a href="{{$url}}{{$page-1}}" class="page-link">{{$page-1}}</a></li>
 
-                            <li class="page-item active"><a href="id={{$id}}?page={{$page}}" class="page-link">{{$page}}</a></li>
+                    <li class="page-item active"><a href="{{$url}}{{$page}}" class="page-link">{{$page}}</a></li>
 
-                        @endif
+                    @endif
                     </ul>
-                </nav>
+                    </nav>
             </div>
         </div>
         <!-- /.container-fluid -->

@@ -80,9 +80,26 @@ class HomeController extends Controller
         $detail = new future_artists();
         $get = $detail->GetArtistDetail($id);
         $video = new videos();
-        $data = $video->getVideoArtist($id);
 
-        return view('categories.detail', ["artist" => $get, "videos" => $data, "id" => $id, "page" => $request->page]);
+        $sorting = ["related" => "video.upload_date", "viewers" => "video.viewers", "alphabet" => "video.title"];
+
+
+        if ($request->has("sort")){
+            $page = $request->page;
+            $params = $request->sort;
+            $this_url = "id=$id?sort=$params&page=";
+            $data = $video->FilterVideo($id, $sorting[$params]);
+            return view('categories.detail', ["artist" => $get, "videos" => $data, "id" => $id, "page" => $request->page, "url" => $this_url]);
+
+
+            // solving database here;
+        }
+        else {
+            $data = $video->FilterVideo($id, $sorting["related"]);
+            $this_url = "id=$id?page=";
+            return view('categories.detail', ["artist" => $get, "videos" => $data, "id" => $id, "page" => $request->page, "url" => $this_url]);
+
+        }
     }
 
     public function getCate($cate_id){

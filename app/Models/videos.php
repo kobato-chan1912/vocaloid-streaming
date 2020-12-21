@@ -40,15 +40,7 @@ class videos extends Model
             ->where("video.id_created", $id_user)
             ->get();
     }
-    public function getVideoArtist($id_artist){
-        return DB::table($this->table)
-            ->select("video.*", "users.name", "users.verify_id")
-            ->join("users", "users.id", "=", "video.id_created")
-            ->where("cate_detail_id", $id_artist)
-            ->orderBy("video.upload_date", "DESC")
-            ->paginate("12");
 
-    }
     public function GetID_Detail($id_video){
         return DB::table($this->table)
             ->select("cate_detail_id")
@@ -121,6 +113,21 @@ class videos extends Model
                 ->limit(12)
                 ->get();
         }
-
+//    public function getVideoArtist($id_artist){
+//        return DB::table($this->table)
+//            ->select("video.*", "users.name", "users.verify_id")
+//            ->join("users", "users.id", "=", "video.id_created")
+//            ->where("cate_detail_id", $id_artist)
+//            ->orderBy("video.upload_date", "DESC")
+//            ->paginate("1");
+//    }
+    public function FilterVideo($id_artist, $table){
+        return DB::table($this->table)
+            ->select("video.*", "users.name", "users.verify_id")
+            ->join("users", "users.id", "=", "video.id_created")
+            ->where("cate_detail_id", $id_artist)
+            ->orderBy($table, "DESC")
+            ->paginate("16");
+    }
 
 }
