@@ -130,4 +130,17 @@ class videos extends Model
             ->paginate("16");
     }
 
+
+    /**
+     * Searching Method.
+     *
+     * @author Mai Viết Dũng.
+     */
+    public function SearchByTitle($title){
+        return DB::table($this->table)
+            ->select("title", "preview_url", "id_format", "id")
+            ->where("title", 'like', "%$title%")
+            ->get();
+    }
+
 }

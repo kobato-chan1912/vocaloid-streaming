@@ -63,4 +63,4 @@ Route::get('/students/{id}', 'LiveSearchController@show');
 
 Route::get('/search/name', 'LiveSearchController@searchByName');
 
-Route::get('/search/email', 'LiveSearchController@searchByEmail');
+Route::get('/search/email', 'StudentController@searchByEmail');

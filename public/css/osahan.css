@@ -20,6 +20,12 @@ Version: 1.0
 	-- Footer
 */
 /* Body */
+
+.tt-menu{
+    width: 100% !important;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Indie+Flower&display=swap');

@@ -35,9 +35,9 @@
     </button> &nbsp;&nbsp;
     <a class="navbar-brand mr-1" href=""><img class="img-fluid" alt="" width="100px" src="img/vocaloid.png"></a>
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search typeahead" role="search">
         <div class="input-group">
-            <input type="text" class="form-control" id = "search" placeholder="Search for...">
+            <input type="search" class="form-control search-input" id = "search" name="q" placeholder="Search for..." autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-light" type="button">
                     <i class="fas fa-search"></i>
@@ -133,9 +133,9 @@
             <div class="top-mobile-search">
                 <div class="row">
                     <div class="col-md-12">
-                        <form class="mobile-search">
+                        <form class="mobile-search typeahead">
                             <div class="input-group">
-                                <input type="text" placeholder="Search for..." class="form-control">
+                                <input type="text" placeholder="Search for..." class="form-control search-input ">
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-dark"><i class="fas fa-search"></i></button>
                                 </div>
@@ -400,15 +400,7 @@
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-<script>
-    $("#search").typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 1
-    });
-
-
-</script>
+<script src="js/search.js"></script>
 </body>
 
 </html>
