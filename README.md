@@ -68,8 +68,17 @@ GOOGLE_DRIVE_FOLDER_ID=X
 //If you upload to the main drive, set the folder id = null. 
 //If upload in a folder, set the id of that folder.
 ```
-
-
+## Admin Account
+You can you this admin account to access /admin.
+```
+Format: 
+email
+password
+```
+```
+no_body156@yahoo.com.vn
+admin
+```
 ## Deploy
 
 Coming Soon.
