@@ -56,3 +56,11 @@ Route::get('videos/home/sort={filter}', 'HomeController@Filter')->name('sort_hom
 
 
 //seaching route.
+
+Route::get('/students', 'LiveSearchController@index');
+
+Route::get('/students/{id}', 'LiveSearchController@show');
+
+Route::get('/search/name', 'LiveSearchController@searchByName');
+
+Route::get('/search/email', 'LiveSearchController@searchByEmail');

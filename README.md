@@ -22,18 +22,34 @@ Coming Soon.
 
 ## Usage
 
-- Install laravel project.
-```bash 
-composer create-project laravel/laravel vocamusic
-cd vocamusic
-php artisan serve
-```
-- Install git follow this [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Clone this git to Laravel project has just created.
-```git
-gh repo clone kobato-chan1912/vocaloid-streaming
+```bash
+git clone clone kobato-chan1912/vocaloid-streaming
 ```
-- Loading the database and Google Drive API in .env file 
+- Using terminal and cd to your project. 
+- Install Composer Dependencies
+```bash
+composer install
+```
+- Create a copy of your .env file
+```bash
+cp .env.example .env
+```
+- Generate an app encryption key
+```bash
+php artisan key:generate
+```
+- Edit Appkey in .env file 
+```bash
+APP_KEY={key has been generated}
+```
+- Open to MySQL Admin (PHPMyadmin, MySQL Workbench,...) and load the sql file.
+```bash
+SQL File (coming soon)
+```
+
+- Get the Drive Client ID, Client Secret and Refresh Token [here](https://gist.github.com/sergomet/f234cc7a8351352170eb547cccd65011)
+- Loading the database configuration and Google Drive API in .env file 
 ```bash
 // MYSQL Connection
 DB_CONNECTION=mysql
@@ -48,6 +64,9 @@ GOOGLE_DRIVE_CLIENT_ID=XXX.apps.googleusercontent.com
 GOOGLE_DRIVE_CLIENT_SECRET=XXX
 GOOGLE_DRIVE_REFRESH_TOKEN=X
 GOOGLE_DRIVE_FOLDER_ID=X
+
+//If you upload to the main drive, set the folder id = null. 
+//If upload in a folder, set the id of that folder.
 ```
 
 
