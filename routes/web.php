@@ -64,3 +64,11 @@ Route::get('/students/{id}', 'LiveSearchController@show');
 Route::get('/search/name', 'LiveSearchController@searchByName');
 
 Route::get('/search/email', 'StudentController@searchByEmail');
+
+Route::get('search/name?value=%QUERY%', function (){
+
+})->name("searching_value");
+
+Route::get("img/screens/{id}/{id}_screen.jpg", function (){
+
+})->name("screen");

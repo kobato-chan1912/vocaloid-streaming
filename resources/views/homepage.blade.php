@@ -8,6 +8,7 @@
     <meta name="description" content="Askbootstrap">
     <meta name="author" content="Askbootstrap">
     <title>VocaMusic - Vocaloid Video Streaming</title>
+    @routes()
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
     <!-- Bootstrap core CSS-->

@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.5",
         "league/flysystem-aws-s3-v3": "^1.0",
         "nao-pon/flysystem-google-drive": "~1.1",
-        "php-ffmpeg/php-ffmpeg": "^0.16.0"
+        "php-ffmpeg/php-ffmpeg": "^0.16.0",
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

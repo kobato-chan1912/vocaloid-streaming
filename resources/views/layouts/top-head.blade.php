@@ -11,9 +11,9 @@
     </button> &nbsp;&nbsp;
     <a class="navbar-brand mr-1" href="{{route("home")}}"><img class="img-fluid" alt="" width="100px" src="{{asset("img/vocaloid.png")}}"></a>
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search typeahead" role="search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="search" class="form-control search-input" id = "search" name="q" placeholder="Search for..." autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-light" type="button">
                     <i class="fas fa-search"></i>

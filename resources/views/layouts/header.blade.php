@@ -6,6 +6,7 @@
     <meta name="author" content="Askbootstrap">
     <title>{{$title}}</title>
     <!-- Favicon Icon -->
+    @routes()
     <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
     <!-- Bootstrap core CSS-->
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">

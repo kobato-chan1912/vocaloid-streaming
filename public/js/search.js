@@ -1,7 +1,10 @@
 $(document).ready(function($) {
+    console.log(route('screen', {id: '01'}));
+    var baseUrl = "{{ asset('img/') }}";
+    console.log(baseUrl);
     var engine1 = new Bloodhound({
         remote: {
-            url: 'search/name?value=%QUERY%',
+            url: route("searching_value"),
             wildcard: '%QUERY%'
         },
         datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
@@ -30,7 +33,7 @@ $(document).ready(function($) {
                     '<div class="header-title"></div><div class="list-group search-results-dropdown"></div>'
                 ],
                 suggestion: function (data) {
-                    return '<a href="watch/video=' + data.id  + '" class="list-group-item"><img style="padding-right: 10px" width="100px" src="img/screens/' + data.id_format +'/' + data.preview_url  +'">' + data.title  + '</a>';
+                    return '<a href="watch/video=' + data.id  + '" class="list-group-item"><img style="padding-right: 10px" width="100px" src="' + route('screen', {id: data.id_format})  +'">' + data.title  + '</a>';
                 }
             }
         },
