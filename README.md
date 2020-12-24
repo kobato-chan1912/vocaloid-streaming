@@ -3,6 +3,7 @@
 
 
 
+
 ## VocaMusic
 
 Vocamusic is an open-source web application (built in @Laravel) for streaming Vocaloid and Utaite Music. Some features can be detailed here:
@@ -16,6 +17,13 @@ Vocamusic is an open-source web application (built in @Laravel) for streaming Vo
 - Top ranks uploaders.
 
 This web application is accessible and **completely open-source.**
+
+## How we storage our videos.
+- By using upload method to server, we would process this temp file in server such as preview, id file, title,... and using Drive API to Upload. 
+- After all, we fetch to cdn by using Fast.io API and delete the temp file to reduce memory.
+
+![alt text](https://raw.githubusercontent.com/kobato-chan1912/vocaloid-streaming/main/cdn_request.png)
+
 
 ## Database.
 
