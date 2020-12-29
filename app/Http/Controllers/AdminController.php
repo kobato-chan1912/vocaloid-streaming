@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     //
@@ -43,5 +44,16 @@ class AdminController extends Controller
     public function remove($id){
         DB::table("video")->where("id", $id)->delete();
         return redirect()->route("admin_videos");
+    }
+    public function deleteAccount($id){
+        DB::table("users")->where("id", $id)->delete();
+        return redirect()->route("admin_users");
+    }
+    public function resetPassword($id){
+        DB::table("users")->where("id", $id)->update([
+           "password" =>  Hash::make("123456")
+        ]);
+        return redirect()->route("admin_users");
+
     }
 }

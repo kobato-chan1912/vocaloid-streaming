@@ -24,8 +24,8 @@
                             <tr>
                                 <th>{{$video->id}}</th>
                                 <td>{{$video->name}}</td>
-                                <td>Edit</td>
-                                <td>X</td>
+                                <td><a href="{{route("reset", $video->id)}}">Reset</a></td>
+                                <td><a href="{{route('account_remove', $video->id)}}">X</a></td>
                             </tr>
                         @endforeach
                         </tbody>

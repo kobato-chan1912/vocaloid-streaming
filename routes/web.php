@@ -70,6 +70,8 @@ Route::get('/search/email', 'StudentController@searchByEmail');
 
 Route::get('search/name?value=%QUERY%', function (){
 
+
+
 })->name("searching_value");
 
 Route::get("img/screens/{id}/{id2}_screen.jpg", function (){
@@ -89,6 +91,7 @@ Route::get("comment/delete/id={id}/video={video_id}", 'CommentController@deleteC
 
 //admin
 Route::prefix('admin')->middleware("admin")->group(function (){
+
     Route::get('/videos', 'AdminController@getAllvideos' )->name('admin_videos');
     Route::get('/users', 'AdminController@getAllUser' )->name('admin_users');
     Route::get("/playlist", 'AdminController@playlistAll' )->name('admin_playlist');
@@ -97,6 +100,15 @@ Route::prefix('admin')->middleware("admin")->group(function (){
     Route::get('/edit/video={id}', 'AdminController@editVideo')->name("admin_edit");
     Route::post('/edit/video={id}', 'AdminController@edit');
     Route::get('/remove/video={id}', 'AdminController@remove')->name("admin_remove");
+
+    // delete route.
+    Route::get("/account/remove/id={id}",    'AdminController@deleteAccount')->name("account_remove");
+    Route::get("/reset/account={id}", 'AdminController@resetPassword')->name("reset");
 });
 
 Route::get("/playlist/id={id}", 'PlaylistController@getPlaylist')->name("playlist");
+
+
+Route::get("admin", function (){
+    return redirect()->route("admin_videos");
+})->middleware('admin');
