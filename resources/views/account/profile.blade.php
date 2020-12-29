@@ -52,6 +52,7 @@
                     <div class="col-lg-12">
                         <div class="main-title">
                             <h6>Updating Avatar</h6>
+                            @if(isset($message)){{$message}} @endif
                         </div>
                     </div>
 

@@ -53,7 +53,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Sign In</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-block btn-lg"><span style="padding-right: 10px"> <i class="fab fa-facebook"></i></span>Facebook Login</button>
+
                                 </div>
+
                             </div>
                         </div>
                     </form>

@@ -35,6 +35,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->avatar_img = "img/avatar/default.jpg";
         $user->verify_id = 2;
+        $user->roles_id = 2;
         $query = $user->save();
 
         return redirect()->route('login')->with(["success" => "Your account has been created. Please Log in."]);

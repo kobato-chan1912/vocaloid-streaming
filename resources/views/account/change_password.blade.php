@@ -13,42 +13,67 @@
                 <div class="col-lg-12">
                     <div class="main-title">
                         <h6>Settings</h6>
+                        <div class="text-danger">
+                            @error("display_name")
+                                {{$message}}
+                            @enderror
+                            @error("old_password")
+                            {{$message}}
+                            @enderror
+                            @error("new_password")
+                            {{$message}}
+                            @enderror
+                            @error("renew_password")
+                            {{$message}}
+                            @enderror
+                            @if(isset($alert))
+                                {{$alert}}
+                                @endif
+
+                        </div>
                     </div>
                 </div>
             </div>
-            <form>
+            <form action="" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="control-label">Email <span class="required">*</span></label>
-                            <input class="form-control border-form-control" value="" placeholder="Gurdeep" type="text">
+                            <input class="form-control border-form-control" value="{{session("LoggedUser")->email}}"  type="text" disabled>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="control-label">Display Name <span class="required">*</span></label>
-                            <input class="form-control border-form-control" value="" placeholder="Osahan" type="text">
+                            <input class="form-control border-form-control" value="{{session("LoggedUser")->name}}" placeholder="Osahan" type="text" name="display_name">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
+                            <label class="control-label">Old Passwrod <span class="required">*</span></label>
+                            <input class="form-control border-form-control" placeholder="Enter the current password." type="password" name="old_password">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
                             <label class="control-label">Password <span class="required">*</span></label>
-                            <input class="form-control border-form-control" value="" placeholder="123 456 7890" type="number">
+                            <input class="form-control border-form-control" value="" placeholder="Enter new password." type="password" name="new_password">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="control-label">Re-type Password <span class="required">*</span></label>
-                            <input class="form-control border-form-control " value="" placeholder="iamosahan@gmail.com" disabled="" type="email">
+                            <input class="form-control border-form-control " value="" placeholder="Enter new password." type="password" name="renew_password">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-12 text-right">
-                        <button type="button" class="btn btn-success border-none"> Save Changes </button>
+                        <button type="submit" class="btn btn-success border-none"> Save Changes </button>
                     </div>
                 </div>
             </form>

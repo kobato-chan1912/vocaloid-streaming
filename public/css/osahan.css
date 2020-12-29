@@ -1,3 +1,5 @@
+
+
 /*
 Template Name: VIDOE - Video Streaming Website HTML Template
 Author: Askbootstrap
@@ -25,6 +27,14 @@ Version: 1.0
     width: 100% !important;
 }
 
+.comment-box{
+    padding-top: 20px;
+}
+
+#fluid_video_wrapper_example-player{
+    width: auto !important;
+    height: auto !important;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap');

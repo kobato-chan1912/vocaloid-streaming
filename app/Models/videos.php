@@ -143,4 +143,17 @@ class videos extends Model
             ->get();
     }
 
+    /**
+     * Playlist Finding. 30 songs/playlist.
+     *
+     * @author Mai Viết Dũng.
+     */
+    public function getPlaylist($id_playlist){
+        return DB::table($this->table)
+            ->select("video.*", "users.name", "users.verify_id")
+            ->join("users", "users.id", "=", "video.id_created")
+            ->where("playlist_id", $id_playlist)
+            ->limit(30)
+            ->get();
+    }
 }

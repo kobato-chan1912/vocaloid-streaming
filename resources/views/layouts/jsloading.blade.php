@@ -1,7 +1,4 @@
-<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"> </script>
-<script>
-    var player = fluidPlayer('example-player');
-</script>
+
 
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 

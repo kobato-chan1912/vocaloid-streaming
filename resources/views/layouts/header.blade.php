@@ -18,4 +18,5 @@
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{asset("vendor/owl-carousel/owl.carousel.css")}}">
     <link rel="stylesheet" href="{{asset("vendor/owl-carousel/owl.theme.css")}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>

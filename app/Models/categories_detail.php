@@ -21,4 +21,6 @@ class categories_detail extends Model
             ->where("id_categories", $cate_id)
             ->get();
     }
+
+
 }

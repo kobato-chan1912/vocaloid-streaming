@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\comments;
 use App\Models\videos;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,9 @@ class VideoController extends Controller
         $cate_id = $video->GetID_Detail($id)[0]->cate_detail_id;
         $the_same = $video->theSameArtist($cate_id, $id);
         $get = $video->getVideoDetail($id);
-        return view("video-page", ["data" => $get, "up_next" => $the_same]);
+        $comment = new comments();
+        $comment_data = $comment->getCommentsDetail($id);
+        return view("video-page", ["data" => $get, "up_next" => $the_same, "comments" => $comment_data, "video_id" => $id]);
     }
 
 
