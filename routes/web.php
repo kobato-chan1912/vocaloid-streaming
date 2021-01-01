@@ -112,3 +112,9 @@ Route::get("/playlist/id={id}", 'PlaylistController@getPlaylist')->name("playlis
 Route::get("admin", function (){
     return redirect()->route("admin_videos");
 })->middleware('admin');
+
+
+
+Route::get("chatbox", function (){
+    return view("chatbox");
+});
